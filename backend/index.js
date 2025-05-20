@@ -23,7 +23,14 @@ const corsOptions = {
     origin:'https://job-portal-848t.onrender.com',
     credentials:true
 }
-
+app.get("/api/v1/logout", (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None"
+  });
+  res.status(200).json({ success: true, message: "Logout successful" });
+});
 app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
