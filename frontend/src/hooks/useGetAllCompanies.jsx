@@ -9,7 +9,7 @@ const useGetAllCompanies = () => {
     useEffect(()=>{
         const fetchCompanies = async () => {
             try {
-                const res = await axios.get(`https://job-portal-848t.onrender.com/api/v1/get`,{withCredentials:true});
+                const res = await axios.get("https://job-portal-848t.onrender.com/api/v1/get",{withCredentials:true});
                 console.log('called');
                 if(res.data.success){
                     dispatch(setCompanies(res.data.companies));
